@@ -1,13 +1,16 @@
-public class Day1 : IAdventSolution
+public class Day01
 {
-    private readonly IEnumerable<string> inputLines; 
-    public Day1()
+    public static string Solve()
     {
-        inputLines = IOHelper.GetLines(nameof(Day1));
-    }
-    
-    public string Solve1()
+        return @$"Day 1 
+        Solution 1: {Solve1()} 
+        Solution 2: {Solve2()}";
+    }   
+
+    private static string Solve1()
     {
+        var inputLines = IOHelper.GetLines(nameof(Day01));
+        Console.WriteLine(inputLines.Count());
         int currentNumber = 50;
         int zeroCount = 0;
 
@@ -29,9 +32,11 @@ public class Day1 : IAdventSolution
         return zeroCount.ToString();
     }
 
-    // Possibly should have tried to be better with the first solution - There will be a cleverer way of doing this one.
-    public string Solve2()
+    // Possibly should have tried to be better with the first solution - There will be a cleverer way of
+    private static string Solve2()
     {
+        var inputLines = IOHelper.GetLines(nameof(Day01));
+
         int currentNumber = 50;
         int zeroCount = 0;
 
@@ -72,8 +77,6 @@ public class Day1 : IAdventSolution
                 }
             }
         }
-
         return zeroCount.ToString();
     }
-
 }
