@@ -7,7 +7,7 @@ public static class IOHelper
         {
             Console.WriteLine("File does not exist :{0} ", filePath);
             return Enumerable.Empty<string>();
-        }      
+        }
 
         return File.ReadAllLines(filePath);
     }

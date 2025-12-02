@@ -1,4 +1,4 @@
-public class Day01
+public static class Day01
 {
     public static string Solve()
     {
@@ -10,19 +10,19 @@ public class Day01
     private static string Solve1()
     {
         var inputLines = IOHelper.GetLines(nameof(Day01));
-        Console.WriteLine(inputLines.Count());
         int currentNumber = 50;
         int zeroCount = 0;
 
         foreach (var inputLine in inputLines)
         {
             var lineStart = inputLine[0];
-            var lineValue = int.Parse(inputLine.Substring(1));
+            var lineValue = int.Parse(inputLine[1..]);
 
             currentNumber = lineStart switch
             {
                  'R' => currentNumber + lineValue,
-                 'L' => currentNumber - lineValue
+                 'L' => currentNumber - lineValue,
+                 _ => throw new ApplicationException(nameof(Day01) + "Un-supported case")
             };
             
             if (currentNumber % 100 == 0)
@@ -43,7 +43,7 @@ public class Day01
         foreach (var inputLine in inputLines)
         {
             var lineStart = inputLine[0];
-            var lineValue = int.Parse(inputLine.Substring(1));
+            var lineValue = int.Parse(inputLine[1..]);
 
             if(lineStart == 'R')
             {
